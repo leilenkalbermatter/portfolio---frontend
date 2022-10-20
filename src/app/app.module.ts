@@ -25,6 +25,10 @@ import { AddProjectComponent } from './components/home/projects/add-project.comp
 import { EditProjectComponent } from './components/home/projects/edit-project.component';
 import { AddSkillComponent } from './components/home/skills/add-skill.component';
 import { EditSkillComponent } from './components/home/skills/edit-skill.component';
+import { EditAboutComponent } from './components/home/about-me/edit-about.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -49,6 +53,7 @@ import { EditSkillComponent } from './components/home/skills/edit-skill.componen
     EditProjectComponent,
     AddSkillComponent,
     EditSkillComponent,
+    EditAboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,9 @@ import { EditSkillComponent } from './components/home/skills/edit-skill.componen
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     InterceptorProvider

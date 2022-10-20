@@ -1,0 +1,32 @@
+<div class="container" *ngIf="about">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nameAbout">Nombre</label>
+                    <input type="text" class="form-control" id="nameAbout" name="nameAbout"
+                        [(ngModel)]="about.nameAbout" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastNameAbout">Apellido</label>
+                    <input type="text" class="form-control" id="lastNameAbout" name="lastNameAbout"
+                        [(ngModel)]="about.lastNameAbout" required>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionAbout">Descripción</label>
+                    <input type="text" class="form-control" id="descriptionAbout" name="descriptionAbout"
+                        [(ngModel)]="about.descriptionAbout" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailAbout">Email</label>
+                    <input type="email" class="form-control" id="emailAbout" name="emailAbout"
+                        [(ngModel)]="about.emailAbout" required>
+                </div>
+                
+                
+                <button class="btn btn-dark"> Confirmar</button>
+            </form>
+        </div>
+    </div>
+</div>
+

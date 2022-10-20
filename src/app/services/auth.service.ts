@@ -11,16 +11,16 @@ import { NewUser } from '../model/new-user';
 })
 export class AuthService {
 
-  authURL = 'https://localhost:8080' + '/auth';
+  URL = environment.URL + 'auth';
 
 
   constructor(private httpClient: HttpClient) { }
 
   public nuevo(newUser: NewUser): Observable<any> {
-    return this.httpClient.post<any>(this.authURL + '/new', newUser);
+    return this.httpClient.post<any>(this.URL + '/new', newUser);
   }
 
   public login(loginUser: LoginUser): Observable<JwtDto> {
-    return this.httpClient.post<JwtDto>(this.authURL + '/login', loginUser);
+    return this.httpClient.post<JwtDto>(this.URL + '/login', loginUser);
   }
 }

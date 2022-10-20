@@ -8,27 +8,27 @@ import { About } from '../model/about';
   providedIn: 'root'
 })
 export class AboutService {
-  aboutURL = 'https://localhost:8080' + '/about';
+  URL = environment.URL + 'about';
 
   constructor(private HttpClient: HttpClient) { }
 
   public list() : Observable<About[]>{
-    return this.HttpClient.get<About[]>(this.aboutURL + '/list');
+    return this.HttpClient.get<About[]>(this.URL + '/list');
   }
 
   public detail(id: number) : Observable<About>{
-    return this.HttpClient.get<About>(this.aboutURL + `/detail/${id}`);
+    return this.HttpClient.get<About>(this.URL + `/detail/${id}`);
   }
 
   public create(about: About) : Observable<any>{
-    return this.HttpClient.post<any>(this.aboutURL + '/create', about);
+    return this.HttpClient.post<any>(this.URL + '/create', about);
   }
 
   public update(id: number, about: About) : Observable<any>{
-    return this.HttpClient.put<any>(this.aboutURL + `/update/${id}`, about);
+    return this.HttpClient.put<any>(this.URL + `/update/${id}`, about);
   }
 
   public delete(id: number) : Observable<any>{
-    return this.HttpClient.delete<any>(this.aboutURL + `/delete/${id}`);
+    return this.HttpClient.delete<any>(this.URL + `/delete/${id}`);
   }
 }

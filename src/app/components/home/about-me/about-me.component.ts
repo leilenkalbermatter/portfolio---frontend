@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 
 export class AboutMeComponent implements OnInit {
-    about: About[] = []
+    about: About = null;
   
     constructor(private aboutService : AboutService, private tokenService: TokenService) { }
   
@@ -18,7 +18,7 @@ export class AboutMeComponent implements OnInit {
   
     ngOnInit(): void {
       this.loadAbouts();
-      if(this.tokenService.getToken()){
+      if(this.tokenService.getToken() != null){
         this.isLogged = true;
       } else {
         this.isLogged = false;
@@ -26,7 +26,7 @@ export class AboutMeComponent implements OnInit {
     }
   
     loadAbouts(){
-      this.aboutService.list().subscribe(
+      this.aboutService.detail(1).subscribe(
         data => {
           this.about = data;
         },

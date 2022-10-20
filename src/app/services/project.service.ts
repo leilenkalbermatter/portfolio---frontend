@@ -8,27 +8,27 @@ import { Project } from '../model/project';
   providedIn: 'root'
 })
 export class ProjectService {
-  proURL = 'https://localhost:8080' + '/project';
+  URL = environment.URL + 'project';
 
   constructor(private HttpClient: HttpClient) { }
 
   public list() : Observable<Project[]>{
-    return this.HttpClient.get<Project[]>(this.proURL + '/list');
+    return this.HttpClient.get<Project[]>(this.URL + '/list');
   }
 
   public detail(id: number) : Observable<Project>{
-    return this.HttpClient.get<Project>(this.proURL + `/detail/${id}`);
+    return this.HttpClient.get<Project>(this.URL + `/detail/${id}`);
   }
 
   public create(project: Project) : Observable<any>{
-    return this.HttpClient.post<any>(this.proURL + '/create', project);
+    return this.HttpClient.post<any>(this.URL + '/create', project);
   }
 
   public update(id: number, project: Project) : Observable<any>{
-    return this.HttpClient.put<any>(this.proURL + `/update/${id}`, project);
+    return this.HttpClient.put<any>(this.URL + `/update/${id}`, project);
   }
 
   public delete(id: number) : Observable<any>{
-    return this.HttpClient.delete<any>(this.proURL + `/delete/${id}`);
+    return this.HttpClient.delete<any>(this.URL + `/delete/${id}`);
   }
 }

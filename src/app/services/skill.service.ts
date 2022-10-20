@@ -8,27 +8,27 @@ import { Skill } from '../model/skill';
   providedIn: 'root'
 })
 export class SkillService {
-  skillURL = 'https://localhost:8080' + '/skill';
+  URL = environment.URL + 'skill';
 
   constructor(private HttpClient: HttpClient) { }
 
   public list() : Observable<Skill[]>{
-    return this.HttpClient.get<Skill[]>(this.skillURL + '/list');
+    return this.HttpClient.get<Skill[]>(this.URL + '/list');
   }
 
   public detail(id: number) : Observable<Skill>{
-    return this.HttpClient.get<Skill>(this.skillURL + `/detail/${id}`);
+    return this.HttpClient.get<Skill>(this.URL + `/detail/${id}`);
   }
 
   public create(skill: Skill) : Observable<any>{
-    return this.HttpClient.post<any>(this.skillURL + '/create', skill);
+    return this.HttpClient.post<any>(this.URL + '/create', skill);
   }
 
   public update(id: number, skill: Skill) : Observable<any>{
-    return this.HttpClient.put<any>(this.skillURL + `/update/${id}`, skill);
+    return this.HttpClient.put<any>(this.URL + `/update/${id}`, skill);
   }
 
   public delete(id: number) : Observable<any>{
-    return this.HttpClient.delete<any>(this.skillURL + `/delete/${id}`);
+    return this.HttpClient.delete<any>(this.URL + `/delete/${id}`);
   }
 }

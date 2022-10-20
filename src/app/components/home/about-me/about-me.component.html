@@ -1,14 +1,14 @@
-<div class="container" id="about" *ngFor="let About of about">
+<div class="container" id="about" *ngIf="about">
   <div class="row">
     <div class="col-md-12 text-center" id="name">
-      <p class="name">{{About.nameAbout}} {{About.lastNameAbout}}</p>
+      <p class="name">{{about.nameAbout}} {{about.lastNameAbout}}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12 text-center" id="rrss">
       <button class="bttn-minimal bttn-md bttn-primary">Linkedin</button>
       <button class="bttn-minimal bttn-md bttn-primary">Github</button>
-      <a href="mailto:{{About.emailAbout}}"><button class="bttn-minimal bttn-md bttn-primary">Contactar por
+      <a href="mailto:{{about.emailAbout}}"><button class="bttn-minimal bttn-md bttn-primary">Contactar por
           correo</button></a>
     </div>
   </div>
@@ -17,14 +17,14 @@
       <p class="about-me">Acerca de:</p>
       <div class="description">
         <p>
-          {{About.descriptionAbout}}
+          {{about.descriptionAbout}}
         </p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <button routerLink="/editarAboutMe/{{About.id}}" *ngIf="isLogged">
+      <button routerLink="/editarPerfil/1" *ngIf="isLogged">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
           viewBox="0 0 16 16">
           <path

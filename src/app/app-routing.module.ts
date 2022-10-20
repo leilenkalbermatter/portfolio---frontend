@@ -15,11 +15,15 @@ import { AddProjectComponent } from './components/home/projects/add-project.comp
 import { EditProjectComponent } from './components/home/projects/edit-project.component';
 import { AddSkillComponent } from './components/home/skills/add-skill.component';
 import { EditSkillComponent } from './components/home/skills/edit-skill.component';
+import { AboutMeComponent } from './components/home/about-me/about-me.component';
+import { EditAboutComponent } from './components/home/about-me/edit-about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'about', component: AboutMeComponent },
+  { path: 'editarPerfil/:id', component: EditAboutComponent },
   { path: 'education', component: EducationComponent },
   { path: 'añadirEducación', component: AddEducationComponent},
   { path: 'editarEducación/:id', component: EditEducationComponent},

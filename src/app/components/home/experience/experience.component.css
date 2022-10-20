@@ -1,0 +1,42 @@
+.container {
+    margin: 1em auto 0em auto;
+    border-top: 1px solid rgb(87, 87, 87);
+}
+
+.row {
+    margin: 1em 0 1em 0;
+    padding: 1em 0 1em 0;
+}
+
+.experience {
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.card {
+    background-color: black;
+    --bs-card-border-radius: 0.25rem;
+    --bs-card-border-color: rgb(87, 87, 87, 0.2);
+    text-align: end;
+    height: 100%;
+}
+
+#cards {
+    margin-top: 25px;
+    width: auto;
+}
+
+button {
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+svg {
+    color: white;
+}
+
+#buttons-card {
+    margin-left: 20px;
+}

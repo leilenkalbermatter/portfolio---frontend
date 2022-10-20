@@ -1,0 +1,152 @@
+{
+    "skills": [
+        {
+            "front-end": [
+                {
+                    "basic": [
+                        {
+                            "basic1": [
+                                {
+                                    "name": "HTML",
+                                    "level": "90%"
+                                }
+                            ]
+                        },
+                        {
+                            "basic2": [
+                                {
+                                    "name": "CSS",
+                                    "level": "80%"
+                                }
+                            ]
+                        },
+                        {
+                            "basic3": [
+                                {
+                                    "name": "JavaScript",
+                                    "level": "70%"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "framework": [
+                        {
+                            "framework1": [
+                                {
+                                    "name": "Angular",
+                                    "level": "80%"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "style": [
+                        {
+                            "style1": [
+                                {
+                                    "name": "Bootstrap",
+                                    "level": "80%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "back-end": [
+                {
+                    "technology": [
+                        {
+                            "technology1": [
+                                {
+                                    "name": "Node",
+                                    "level": "70%"
+                                }
+                            ]
+                        },
+                        {
+                            "technology2": [
+                                {
+                                    "name": "Java(Spring)",
+                                    "level": "70%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "database": [
+                {
+                    "rdbms": [
+                        {
+                            "rdbms1": [
+                                {
+                                    "name": "MySQL",
+                                    "level": "70%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "other": [
+                {
+                    "tools": [
+                        {
+                            "tools1": [
+                                {
+                                    "name": "Git",
+                                    "level": "80%"
+                                }
+                            ]
+                        },
+                        {
+                            "tools2": [
+                                {
+                                    "name": "GitHub",
+                                    "level": "70%"
+                                }
+                            ]
+                        },
+                        {
+                            "tools3": [
+                                {
+                                    "name": "Visual Studio Code",
+                                    "level": "70%"
+                                }
+                            ]
+                        },
+                        {
+                            "tools4": [
+                                {
+                                    "name": "Postman",
+                                    "level": "70%"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "idioms": [
+                        {
+                            "idioms1": [
+                                {
+                                    "name": "English",
+                                    "level": "70%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+<div class="container" *ngIf="skill">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nameSkill">Nombre de la habilidad</label>
+                    <input type="text" class="form-control" id="nameSkill" name="nameSkill"
+                        [(ngModel)]="skill.nameSkill" required>
+                </div>
+                <div class="form-group">
+                    <label for="levelSkill">Nivel de la habilidad</label>
+                    <input type="range" min="0" max="100" step="1" class="form-control" id="levelSkill" name="levelSkill"
+                        [(ngModel)]="skill.levelSkill" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categorySkill">Categoria de la habilidad</label>
+                    <select type="text" class="form-control" id="categorySkill" name="categorySkill"
+                        [(ngModel)]="skill.categorySkill" required>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Base de datos">Base de datos</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subCategorySkill">Subcategoría de la habilidad</label>
+                    <select type="text" class="form-control" id="subCategorySkill" name="subCategorySkill"
+                        [(ngModel)]="skill.subCategorySkill" required>
+                        <option value="Básicas">Frontend - Básicas</option>
+                        <option value="Frameworks">Frontend - Frameworks</option>
+                        <option value="Estilos">Frontend - Estilos</option>
+                        <option value="Tecnología">Backend - Tecnología</option>
+                        <option value="RDBMS">Base de datos - RDBMS</option>
+                        <option value="Herramientas">Otras - Herramientas</option>
+                        <option value="Sistemas operativos">Otras - Sistemas operativos</option>
+                        <option value="Idiomas">Otras - Idiomas</option>
+                    </select>
+                </div>
+                <button class="btn btn-dark"> Confirmar</button>
+            </form>
+        </div>
+    </div>
+</div>

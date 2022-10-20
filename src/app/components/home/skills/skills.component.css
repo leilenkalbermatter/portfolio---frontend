@@ -1,0 +1,84 @@
+.container {
+    margin-top: 50px;
+    border-top: 1px solid rgb(87, 87, 87);
+    padding-top: 50px;
+}
+
+.col-md-3 {
+    margin-bottom: 50px;
+    padding: 33px;
+    border: 1px solid rgb(87, 87, 87, 0.2);
+}
+
+.skills {
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.title {
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    font-weight: 200;
+}
+
+.skillbar {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.skillbar-bar:before {
+    background: rgb(110, 110, 110);
+    content: "";
+    height: 3px;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.skillbar-bar {
+    height: 3px;
+    width: 0px;
+    background: #ffffff;
+    transition-property: width, background-color;
+}
+
+.skillbar-title {
+    margin-top: auto;
+    margin-bottom: 4px;
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 14px;
+    display: inline-block;
+
+}
+
+.skillbar-subtitle {
+    display: flex;
+    flex-direction: row-reverse;
+    color: #ffffff;
+    font-size: 14px;
+}
+.skill-bar-percent {
+    float: right;
+    color: #323232;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+button {
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+svg {
+    color: white;
+}

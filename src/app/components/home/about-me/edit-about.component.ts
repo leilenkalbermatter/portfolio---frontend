@@ -26,7 +26,7 @@ export class EditAboutComponent implements OnInit {about : About = null;
 
   onEdit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.aboutService.update(1, this.about).subscribe(
+    this.aboutService.update(id, this.about).subscribe(
       data => {
         this.router.navigate(['']);
       }, err => {

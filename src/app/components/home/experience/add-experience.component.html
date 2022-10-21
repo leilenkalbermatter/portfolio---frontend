@@ -19,8 +19,8 @@
                 </div>
                 <div class="form-group">
                     <label for="imgExperience">Imagen de la experiencia</label>
-                    <input type="text" class="form-control" id="imgExperience" name="imgExperience"
-                        [(ngModel)]="imgExperience" required>
+                    <input type="file" class="form-control" id="imgExperience" name="imgExperience"
+                        [(ngModel)]="imgExperience" (change)="loadImage($event)">
                 </div>
                 <button class="btn btn-dark"> Añadir experiencia</button>
             </form>

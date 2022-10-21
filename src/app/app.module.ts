@@ -10,7 +10,6 @@ import { EducationComponent } from './components/home/education/education.compon
 import { SkillsComponent } from './components/home/skills/skills.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { ExperienceComponent } from './components/home/experience/experience.component';
-import { ContactComponent } from './components/home/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
@@ -41,7 +40,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     SkillsComponent,
     ProjectsComponent,
     ExperienceComponent,
-    ContactComponent,
     HomeComponent,
     LoginComponent,
     Pagina404Component,

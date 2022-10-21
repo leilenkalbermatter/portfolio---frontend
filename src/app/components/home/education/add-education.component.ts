@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/services/education.service';
 import { ImageService } from 'src/app/services/image.service';
@@ -11,13 +11,14 @@ import { ImageService } from 'src/app/services/image.service';
 })
 export class AddEducationComponent implements OnInit {
 
-  idEducation: number;
   nameEducation: string = '';
   descriptionEducation: string = '';
   dateEducation: string = '';
   imgEducation: string = '';
 
-  constructor(private educationService: EducationService, private router: Router, private activatedRoute: ActivatedRoute, public imageService: ImageService) { }
+  constructor(private educationService: EducationService, 
+    private router: Router, 
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
   }

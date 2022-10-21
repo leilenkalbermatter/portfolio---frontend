@@ -18,9 +18,9 @@
                         [(ngModel)]="dateEducation" required>
                 </div>
                 <div class="form-group">
-                    <label for="imgEducation">Imagen de la educación</label>
-                    <input type="text" class="form-control" id="imgEducation" name="imgEducation"
-                        [(ngModel)]="imgEducation" required>
+                    <label for="imgEducation">Imagen de la educación:</label>
+                    <input type="file" class="form-control" id="imgEducation" name="imgEducation"
+                        [(ngModel)]="imgEducation" (change)="loadImage($event)">
                 </div>
                 <button class="btn btn-dark"> Añadir educación</button>
             </form>

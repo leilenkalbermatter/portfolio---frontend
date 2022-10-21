@@ -1,7 +1,11 @@
 .container {
-    margin-top: 50px;
+    margin: 1em auto 0em auto;
     border-top: 1px solid rgb(87, 87, 87);
-    padding-top: 50px;
+}
+
+.row {
+    margin: 1em 0 1em 0;
+    padding: 1em 0 1em 0;
 }
 
 .col-md-3 {

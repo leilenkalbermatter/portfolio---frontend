@@ -1,7 +1,11 @@
 .container {
-    margin: 50px auto;
+    margin: 1em auto 0em auto;
     border-top: 1px solid rgb(87, 87, 87);
-    padding: 50px 0 50px 0;
+}
+
+.row {
+    margin: 1em 0 1em 0;
+    padding: 1em 0 1em 0;
 }
 
 .project {
@@ -36,4 +40,3 @@ svg {
 #buttons-card {
     margin-left: 20px;
 }
-

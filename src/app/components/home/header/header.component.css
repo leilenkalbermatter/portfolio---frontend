@@ -1,20 +1,17 @@
-.container {
-  margin: 0em auto 0em auto;
+.container{
+  padding: 0%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-
-.row {
-  margin: 1em 0 1em 0;
-  padding: 1em 0 1em 0;
-}
-
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
-  background-color: transparent !important;
+  padding: 0;
+  background-color: black!important;
 }
 
 .navbar-nav {
@@ -41,4 +38,8 @@
 
 .logout:hover{
   color: white;
+}
+
+.svg {
+  margin-right: 0.6em;
 }

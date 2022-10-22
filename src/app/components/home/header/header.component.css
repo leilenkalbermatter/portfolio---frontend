@@ -1,20 +1,18 @@
-.container {
-  margin: 0em auto 0em auto;
+.container{
+  display: block;
+  padding: 0%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-.row {
-  margin: 1em 0 1em 0;
-  padding: 1em 0 1em 0;
-}
-
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
-  background-color: transparent !important;
+  padding: 0;
+  background-color: black!important;
 }
 
 .navbar-nav {
@@ -22,6 +20,7 @@
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-color: #6c757d;
   --bs-nav-link-hover-color: #dee2e6;
+  --bs-navbar-active-color: rgb(255 255 255 / 90%);
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -40,5 +39,13 @@
 }
 
 .logout:hover{
+  color: white;
+}
+
+.svg {
+  margin-right: 0.6em;
+}
+
+a.active {
   color: white;
 }

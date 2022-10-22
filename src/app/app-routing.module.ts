@@ -40,7 +40,7 @@ const routes: Routes = [
 ];
 
 const routerOptions: ExtraOptions = { 
-  useHash: false, anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' };
+  useHash: false, anchorScrolling: 'enabled', onSameUrlNavigation: 'reload', scrollPositionRestoration: 'enabled', scrollOffset: [0, 90] };
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, routerOptions)],

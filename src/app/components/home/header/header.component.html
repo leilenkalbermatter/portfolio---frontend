@@ -6,7 +6,7 @@
 
   3) cambiar el color de la barra de navegación al hacer scroll
  -->
-<div class="container">
+<div class="container header">
   <div class="col-md-12">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
@@ -19,7 +19,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav m-auto">
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/home" aria-current="page">Home<span class="sr-only"></span></a>
+              <a class="nav-link" routerLink="/home" fragment="about" routerLinkActive="active"
+               aria-current="page">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/home" fragment="education">Educación</a>

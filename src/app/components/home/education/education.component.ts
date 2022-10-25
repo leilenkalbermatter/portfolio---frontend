@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
-import { ref, Storage, uploadBytes, listAll, getDownloadURL} from '@angular/fire/storage'
+import { getStorage, ref, deleteObject } from "firebase/storage";
+
 
 @Component({
   selector: 'app-education',
@@ -11,36 +12,25 @@ import { ref, Storage, uploadBytes, listAll, getDownloadURL} from '@angular/fire
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-  education: Education[] = null;
+  education: Education[] = [];
 
-  //IMAGENES
-  images: string[];
-
-  constructor(private educationService : EducationService,
-    private activatedRoute: ActivatedRoute, 
-   private tokenService: TokenService, 
-   private storage: Storage) { 
-
-    //IMAGENES
-    this.images = [];
-   }
+  constructor(private educationService: EducationService,
+    private activatedRoute: ActivatedRoute,
+    private tokenService: TokenService) {
+  }
 
   isLogged = false;
 
   ngOnInit(): void {
     this.loadEducations();
-    const id = this.activatedRoute.snapshot.params['id'];
-    if(this.tokenService.getToken()){
+    if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {
       this.isLogged = false;
     }
-
-    //IMAGENES
-    this.getImages();
   }
 
-  loadEducations(){
+  loadEducations() {
     this.educationService.list().subscribe(
       data => {
         this.education = data;
@@ -51,49 +41,41 @@ export class EducationComponent implements OnInit {
     )
   }
 
-  delete(id?: number){
-    if(id != undefined){
-      this.educationService.delete(id).subscribe(
-        data => {
-          this.loadEducations();
-        },
-        err => {
-          alert("Error al eliminar los datos");
-        }
-      )
+  public deleteFirebase(pathImgEducation?: string) {
+    const storage = getStorage();
+
+    // Create a reference to the file to delete
+    const desertRef = ref(storage, "education/" + pathImgEducation);
+    console.log(desertRef)
+    // Delete the file
+    deleteObject(desertRef).then(() => {
+      console.log("Eliminado")
+    }).catch((error) => {
+      console.log(error)
+    });
+  }
+
+
+  async delete(id?: number, pathImgEducation?: string) {
+    if (id != undefined) {
+
+      //await this.storage.deletefirebase(pathImgEducation);
+      await this.deleteFirebase(pathImgEducation);
+
+
+      setTimeout(() =>
+
+        this.educationService.delete(id).subscribe(
+          data => {
+            this.loadEducations();
+
+          }, err => {
+            alert("Error al eliminar");
+          }
+        ), 2000);
+
     }
-  }
 
-  //IMAGENES
-
-  uploadImage($event: any) {
-    const file = $event.target.files[0];
-    console.log(file);
-
-    const imgRef = ref(this.storage, `images/education/${file.name}`);
-
-    uploadBytes(imgRef, file)
-      .then(response => {console.log(response); this.getImages();})
-      .catch(error => console.log(error));
-      
-  }
-
-  getImages() {
-    const imgRef = ref(this.storage, `images/education/`);
-    console.log(imgRef);
-
-    listAll(imgRef)
-      .then(async response => {
-        console.log(response);
-
-        this.images = [];
-        for (let item of response.items) {
-          const url = await getDownloadURL(item);
-          this.images.push(url);
-          
-        }
-      })
-      .catch(error => console.log(error));
   }
 
 }

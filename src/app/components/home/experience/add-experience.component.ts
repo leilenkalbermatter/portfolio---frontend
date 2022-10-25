@@ -13,7 +13,8 @@ export class AddExperienceComponent implements OnInit {
   nameExperience: string = '';
   descriptionExperience: string = '';
   dateExperience: string = '';
-  imgExperience: string = '';
+  pathImageExperience: string = '';
+  urlImageExperience: string = '';
 
   constructor(private experienceService: ExperienceService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -21,7 +22,7 @@ export class AddExperienceComponent implements OnInit {
   }
 
   onAdd(): void {
-    const experience = new Experience(this.nameExperience, this.descriptionExperience, this.dateExperience, this.imgExperience);
+    const experience = new Experience(this.nameExperience, this.descriptionExperience, this.dateExperience, this.pathImageExperience, this.urlImageExperience);
 /*     this.imgExperience = this.imageService.url; */
     this.experienceService.create(experience).subscribe(
       data => {

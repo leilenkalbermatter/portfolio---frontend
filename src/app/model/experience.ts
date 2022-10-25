@@ -3,12 +3,14 @@ export class Experience {
     nameExperience : string;
     descriptionExperience : string;
     dateExperience : string;
-    imgExperience : string;
+    pathImageExperience : string;
+    urlImageExperience : string;
 
-    constructor(nameExperience : string, descriptionExperience : string, dateExperience : string, imgExperience : string) {
+    constructor(nameExperience : string, descriptionExperience : string, dateExperience : string, pathImageExperience : string, urlImageExperience : string){
         this.nameExperience = nameExperience;
         this.descriptionExperience = descriptionExperience;
         this.dateExperience = dateExperience;
-        this.imgExperience = imgExperience;
+        this.pathImageExperience = pathImageExperience;
+        this.urlImageExperience = urlImageExperience;
     }
 }

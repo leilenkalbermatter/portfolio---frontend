@@ -13,7 +13,8 @@ export class AddProjectComponent implements OnInit {
   nameProject: string = '';
   descriptionProject: string = '';
   linkProject: string = '';
-  imgProject: string = '';
+  pathImageProject: string = '';
+  urlImageProject: string = '';
 
   constructor(private projectService: ProjectService, 
     private router: Router) { }
@@ -22,7 +23,7 @@ export class AddProjectComponent implements OnInit {
   }
 
   onAdd(): void {
-    const project = new Project(this.nameProject, this.descriptionProject, this.linkProject, this.imgProject);
+    const project = new Project(this.nameProject, this.descriptionProject, this.linkProject, this.pathImageProject, this.urlImageProject);
 /*     this.imgProject = this.imageService.url; */
 
     this.projectService.create(project).subscribe(

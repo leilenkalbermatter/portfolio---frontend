@@ -1,10 +1,3 @@
-<!-- IMAGENES -->
-<input type="file" (change)="uploadImage($event)">
-
-<div class="images">
-    <img [src]="image" alt="" *ngFor="let image of images" width="100px">
-</div>
-
 <div class="container" id="education">
     <div class="row">
         <div class="col-sm-10">
@@ -24,7 +17,7 @@
         <div class="row" style="flex-flow: row; flex-wrap: wrap;">
             <div class="col-md-3" id="cards" *ngFor="let Education of education">
                 <div class="card text-white">
-                    <img [src]="" class="card-img-top" alt="...">
+                    <img src="{{Education.urlImageEducation}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{Education.nameEducation}}</h5>
                         <p class="card-text">{{Education.descriptionEducation}}</p>
@@ -41,7 +34,7 @@
                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                 </svg>
                             </button>
-                            <button (click)="delete(Education.id)" *ngIf="isLogged">
+                            <button (click)="delete(Education.id, Education.pathImageEducation)" *ngIf="isLogged">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path

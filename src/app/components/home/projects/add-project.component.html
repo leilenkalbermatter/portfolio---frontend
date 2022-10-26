@@ -1,28 +1,34 @@
 <div class="container">
     <div class="row">
         <div>
+            <div class="loadImage">
+                <label for="urlImageProject" class="labelInputFile">Seleccione la imágen:</label>
+                <input type="file" accept=".bmp, .gif , .jpg, .tif, .png, .jpeg" (change)="loadImage($event)"
+                    id="urlImageProject">
+            </div>
+            <div class="img"><img class="img-load" src="{{image[0]}}" width="50px"></div>
             <form (ngSubmit)="onAdd()" novalidate #f="ngForm">
                 <div class="form-group">
                     <label for="nameProject">Nombre del proyecto</label>
                     <input type="text" class="form-control" id="nameProject" name="nameProject"
+                    #input1 (keyup)="getValue1(input1.value)"
                         [(ngModel)]="nameProject" required>
                 </div>
                 <div class="form-group">
                     <label for="descriptionProject">Descripción del proyecto</label>
-                    <input type="text" class="form-control" id="descriptionProject" name="descriptionProject"
-                        [(ngModel)]="descriptionProject" required>
+                    <textarea type="text" class="form-control" id="descriptionProject" name="descriptionProject"
+                    #input2 (keyup)="getValue2(input2.value)"
+                        [(ngModel)]="descriptionProject" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="linkProject">Link al proyecto</label>
                     <input type="text" class="form-control" id="linkProject" name="linkProject"
                         [(ngModel)]="linkProject" required>
                 </div>
-<!--                 <div class="form-group">
-                    <label for="imgProject">Imagen del proyecto</label>
-                    <input type="file" class="form-control" id="imgProject" name="imgProject"
-                        [(ngModel)]="imgProject" (change)="loadImage($event)">
-                </div> -->
-                <button class="btn btn-dark"> Añadir proyecto</button>
+                <div class="send">
+                    <button class="btn btn-dark" [disabled]="loading" (click)="load()"> {{(loading)? 'Añadiendo...': 'Añadir Proyecto'}}</button>
+                </div>
+                
             </form>
         </div>
     </div>

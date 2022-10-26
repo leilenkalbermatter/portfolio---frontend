@@ -48,7 +48,7 @@ export class AddEducationComponent implements OnInit {
     let reader = new FileReader();
 
     reader.readAsDataURL(files[0]);
-    reader.onloadend = (event) => {
+    reader.onloadend = () => {
       this.urlImageEducation.toString();
 
       console.log(reader.result);
@@ -92,8 +92,7 @@ load() {
 
     setTimeout(() =>
       this.onAdd(), 
-      //modificar el tiempo de espera
-      50);
+      1000);
     })
     .catch(error => console.error()
     );

@@ -1,6 +1,6 @@
 <div class="container" id="experience">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 text-start">
             <button routerLink="/añadirExperiencia" *ngIf="isLogged">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
                     viewBox="0 0 16 16">
@@ -12,22 +12,21 @@
         <div class="col-sm-10">
             <p class="text-end experience">Experiencia</p>
         </div>
-
-
+        
     </div>
     <div class="card-group">
-        <div class="row" style="flex-flow: row-reverse; flex-wrap: wrap;">
+        <div class="row" style="flex-flow: row; flex-wrap: wrap;">
             <div class="col-md-3" id="cards" *ngFor="let Experience of experience">
                 <div class="card text-white">
-<!--                     <img src="{{Experience}}" class="card-img-top" alt="..."> -->
+                    <img src="{{Experience.urlImageExperience}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{Experience.nameExperience}}</h5>
                         <p class="card-text">{{Experience.descriptionExperience}}</p>
                         <p class="card-text"><small class="text-muted">{{Experience.dateExperience}}</small></p>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="isLogged">
                         <div class="col-md-12 text-start" id="buttons-card">
-                            <button routerLink="/editarExperiencia/{{Experience.id}}" *ngIf="isLogged">
+                            <button routerLink="/editarExperiencia/{{Experience.id}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -36,7 +35,7 @@
                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                 </svg>
                             </button>
-                            <button (click)="delete(Experience.id)" *ngIf="isLogged">
+                            <button class="delete" type="button" (click)="delete(Experience.id, Experience.pathImageExperience)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path
@@ -49,4 +48,5 @@
             </div>
         </div>
     </div>
+    
 </div>

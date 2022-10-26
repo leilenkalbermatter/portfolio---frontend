@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -15,7 +14,6 @@ export class EducationComponent implements OnInit {
   education: Education[] = [];
 
   constructor(private educationService: EducationService,
-    private activatedRoute: ActivatedRoute,
     private tokenService: TokenService) {
   }
 
@@ -44,12 +42,11 @@ export class EducationComponent implements OnInit {
   public deleteFirebase(pathImgEducation?: string) {
     const storage = getStorage();
 
-    // Create a reference to the file to delete
     const desertRef = ref(storage, "education/" + pathImgEducation);
     console.log(desertRef)
     // Delete the file
     deleteObject(desertRef).then(() => {
-      console.log("Eliminado")
+      console.log("File deleted successfully")
     }).catch((error) => {
       console.log(error)
     });
@@ -72,7 +69,7 @@ export class EducationComponent implements OnInit {
           }, err => {
             alert("Error al eliminar");
           }
-        ), 2000);
+        ), 1000);
 
     }
 

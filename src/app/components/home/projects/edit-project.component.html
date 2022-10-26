@@ -1,29 +1,33 @@
 <div class="container" *ngIf="project">
     <div class="row">
         <div>
+            <h2>Editar Proyecto</h2>
+            <div class="img"><img class="img-load" src="{{image[0]}}"></div>
+            <div class="loadImage">
+                <label for="urlImageProject" class="labelInputFile">Imagen del proyecto:</label>
+                <input type="file" name="pathImageProject"  accept=".bmp, .gif , .jpg, .tif, .png, .jpeg" (change)="loadImage($event)"
+                    id="urlImageProject">
+                
+            </div>
             <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="nameProject">Nombre del proyecto</label>
+                    <label for="nameProject">Nombre del proyecto:</label>
                     <input type="text" class="form-control" id="nameProject" name="nameProject"
                         [(ngModel)]="project.nameProject" required>
                 </div>
                 <div class="form-group">
-                    <label for="descriptionProject">Descripción del proyecto</label>
+                    <label for="descriptionProject">Descripción del proyecto:</label>
                     <input type="text" class="form-control" id="descriptionProject" name="descriptionProject"
                         [(ngModel)]="project.descriptionProject" required>
                 </div>
                 <div class="form-group">
-                    <label for="linkProject">Link al proyecto</label>
+                    <label for="linkProject">Link al proyecto:</label>
                     <input type="text" class="form-control" id="linkProject" name="linkProject"
                         [(ngModel)]="project.linkProject" required>
                 </div>
-<!--                 <div class="form-group">
-                    <label for="imgProject">Imagen del proyecto</label>
-                    <input type="file" class="form-control" id="imgEducation" name="imgEducation"
-                    [(ngModel)]="project.imgProject" 
-                    (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
-            </div> -->
-                <button class="btn btn-dark"> Confirmar</button>
+                
+                <button class="btn btn-dark" [disabled]="loading" (click)="load()"> {{(loading)? 'Editando..': 'Actualizar Proyecto'}}</button>
+
             </form>
         </div>
     </div>

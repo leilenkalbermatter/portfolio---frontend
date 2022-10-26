@@ -20,13 +20,13 @@ export class ImageService {
     try{
       let folder:string;
       if(name.includes('education')){
-        folder = 'education';
+        folder = 'education/';
       }
       if(name.includes('experience')){
-        folder = 'experience';
+        folder = 'experience/';
       }
       if(name.includes('project')){
-        folder = 'project';
+        folder = 'project/';
       }
       let response = await this.storageRef.child(folder+name).putString(imgBase64, 'data_url');
       this.response2=response.ref.fullPath;

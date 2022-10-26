@@ -1,32 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/storage';
+import { deleteObject, getStorage, ref } from '@angular/fire/storage';
+import  firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
+import { environment} from 'src/environments/environment';
+
+firebase.initializeApp(environment.firebase);
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
 
-  url: string = "" ;
-  constructor(private storage: Storage) { }
+  storageRef = firebase.app().storage().ref();
 
-  public uploadImage($event: any, name: string) {
-    const file = $event.target.files[0];
-    const imgRef = ref(this.storage, `images/` + name);
-    uploadBytes(imgRef, file)
-      .then(response => { this.getImages() })
-      .catch(error => console.log(error));
+  constructor() { }
 
-  }
+  public response2: string;
+  async uploadImage(name: string, imgBase64: any){
+    try{
+      let folder:string;
+      if(name.includes('education')){
+        folder = 'education/';
+      }
+      if(name.includes('experience')){
+        folder = 'experience/';
+      }
+      if(name.includes('project')){
+        folder = 'project/';
+      }
+      let response = await this.storageRef.child(folder+name).putString(imgBase64, 'data_url');
+      this.response2=response.ref.fullPath;
 
-  getImages() {
-    const imagesRef = ref(this.storage, `images`)
-    list(imagesRef)
-      .then(async response => {
-        for (let item of response.items) {
-          this.url = await getDownloadURL(item);
-          console.log(this.url);
-        }
-      })
-      .catch(error => console.log(error));
+      return await response.ref.getDownloadURL();
+    } catch (error){
+      console.log(error);
+      return "error";
+    }
   }
 }

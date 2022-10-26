@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { EditProjectComponent } from './components/home/projects/edit-project.co
 import { AddSkillComponent } from './components/home/skills/add-skill.component';
 import { EditSkillComponent } from './components/home/skills/edit-skill.component';
 import { EditAboutComponent } from './components/home/about-me/edit-about.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
 

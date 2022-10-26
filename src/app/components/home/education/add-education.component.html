@@ -1,28 +1,34 @@
 <div class="container">
     <div class="row">
         <div>
+            <div class="loadImage">
+                <label for="urlImageEducation" class="labelInputFile">Seleccione la imágen:</label>
+                <input type="file" accept=".bmp, .gif , .jpg, .tif, .png, .jpeg" (change)="loadImage($event)"
+                    id="urlImageEducation">
+            </div>
+            <div class="img"><img class="img-load" src="{{image[0]}}" width="50px"></div>
             <form (ngSubmit)="onAdd()" novalidate #f="ngForm">
                 <div class="form-group">
                     <label for="nameEducation">Nombre de la educación</label>
                     <input type="text" class="form-control" id="nameEducation" name="nameEducation"
+                    #input1 (keyup)="getValue1(input1.value)"
                         [(ngModel)]="nameEducation" required>
                 </div>
                 <div class="form-group">
                     <label for="descriptionEducation">Descripción de la educación</label>
-                    <input type="text" class="form-control" id="descriptionEducation" name="descriptionEducation"
-                        [(ngModel)]="descriptionEducation" required>
+                    <textarea type="text" class="form-control" id="descriptionEducation" name="descriptionEducation"
+                    #input2 (keyup)="getValue2(input2.value)"
+                        [(ngModel)]="descriptionEducation" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="dateEducation">Fecha de la educación</label>
                     <input type="text" class="form-control" id="dateEducation" name="dateEducation"
                         [(ngModel)]="dateEducation" required>
                 </div>
-                <div class="form-group">
-                    <label for="imgEducation">Imagen de la educación:</label>
-                    <input type="file" class="form-control" id="imgEducation" name="imgEducation"
-                        [(ngModel)]="imgEducation" (change)="loadImage($event)">
+                <div class="send">
+                    <button class="btn btn-dark" [disabled]="loading" (click)="load()"> {{(loading)? 'Añadiendo...': 'Añadir Educación'}}</button>
                 </div>
-                <button class="btn btn-dark"> Añadir educación</button>
+                
             </form>
         </div>
     </div>

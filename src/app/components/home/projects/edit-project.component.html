@@ -1,34 +1,27 @@
-<div class="container" *ngIf="project">
-    <div class="row">
-        <div>
-            <h2>Editar Proyecto</h2>
-            <div class="img"><img class="img-load" src="{{image[0]}}"></div>
-            <div class="loadImage">
-                <label for="urlImageProject" class="labelInputFile">Imagen del proyecto:</label>
-                <input type="file" name="pathImageProject"  accept=".bmp, .gif , .jpg, .tif, .png, .jpeg" (change)="loadImage($event)"
-                    id="urlImageProject">
-                
-            </div>
-            <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nameProject">Nombre del proyecto:</label>
-                    <input type="text" class="form-control" id="nameProject" name="nameProject"
-                        [(ngModel)]="project.nameProject" required>
-                </div>
-                <div class="form-group">
-                    <label for="descriptionProject">Descripción del proyecto:</label>
-                    <input type="text" class="form-control" id="descriptionProject" name="descriptionProject"
-                        [(ngModel)]="project.descriptionProject" required>
-                </div>
-                <div class="form-group">
-                    <label for="linkProject">Link al proyecto:</label>
-                    <input type="text" class="form-control" id="linkProject" name="linkProject"
-                        [(ngModel)]="project.linkProject" required>
-                </div>
-                
-                <button class="btn btn-dark" [disabled]="loading" (click)="load()"> {{(loading)? 'Editando..': 'Actualizar Proyecto'}}</button>
-
-            </form>
-        </div>
+<form (ngSubmit)="onEdit()" novalidate #f="ngForm" *ngIf="project">
+    <div class="form-group">
+        <label for="nameProject"></label>
+        <input type="text" class="form-control" id="nameProject" name="nameProject"
+            [(ngModel)]="project.nameProject" required placeholder="Nombre del proyecto">
     </div>
-</div>
+    <div class="form-group">
+        <label for="descriptionProject"></label>
+        <textarea type="text" class="form-control" id="descriptionProject" name="descriptionProject"
+            [(ngModel)]="project.descriptionProject" required placeholder="Descripción del proyecto"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="linkProject"></label>
+        <input type="text" class="form-control" id="linkProject" name="linkProject"
+            [(ngModel)]="project.linkProject" required placeholder="Link al proyecto">
+    </div>
+
+    <div class="img"><img class="img-load" src="{{image[0]}}" width="100px"></div>
+    <div class="form-group">
+        <label for="urlImageProject" class="labelFile"></label>
+        <input type="file" class="labelInputFile" accept=".bmp, .gif , .jpg, .tif, .png, .jpeg"
+            (change)="loadImage($event)" id="urlImageProject">
+    </div>
+
+    <button class="bttn-minimal bttn-md bttn-primary" [disabled]="loading" (click)="load()"> {{(loading)?
+        'Editando..': 'Actualizar Proyecto'}}</button>
+</form>

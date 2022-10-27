@@ -28,6 +28,7 @@ import { EditSkillComponent } from './components/home/skills/edit-skill.componen
 import { EditAboutComponent } from './components/home/about-me/edit-about.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { FooterComponent } from './components/home/footer/footer.component';
 
 
 
@@ -52,6 +53,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     AddSkillComponent,
     EditSkillComponent,
     EditAboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

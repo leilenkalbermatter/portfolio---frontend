@@ -1,34 +1,27 @@
-<div class="container" *ngIf="experience">
-    <div class="row">
-        <div>
-            <h2>Editar Experiencia</h2>
-            <div class="img"><img class="img-load" src="{{image[0]}}"></div>
-            <div class="loadImage">
-                <label for="urlImageExperience" class="labelInputFile">Imagen de la educación:</label>
-                <input type="file" name="pathImageExperience"  accept=".bmp, .gif , .jpg, .tif, .png, .jpeg" (change)="loadImage($event)"
-                    id="urlImageExperience">
-                
-            </div>
-            <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nameExperience">Nombre de la educación:</label>
-                    <input type="text" class="form-control" id="nameExperience" name="nameExperience"
-                        [(ngModel)]="experience.nameExperience" required>
-                </div>
-                <div class="form-group">
-                    <label for="descriptionExperience">Descripción de la educación:</label>
-                    <textarea type="text" class="form-control" id="descriptionExperience" name="descriptionExperience"
-                        [(ngModel)]="experience.descriptionExperience" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="dateExperience">Fecha de la educación:</label>
-                    <input type="text" class="form-control" id="dateExperience" name="dateExperience"
-                        [(ngModel)]="experience.dateExperience" required>
-                </div>
-                
-                <button class="bttn-minimal bttn-md bttn-primary" [disabled]="loading" (click)="load()"> {{(loading)? 'Editando..': 'Actualizar Experiencia'}}</button>
-
-            </form>
-        </div>
+<form (ngSubmit)="onEdit()" novalidate #f="ngForm" *ngIf="experience">
+    <div class="form-group">
+        <label for="nameExperience"></label>
+        <input type="text" class="form-control" id="nameExperience" name="nameExperience"
+            [(ngModel)]="experience.nameExperience" required placeholder="Nombre de la experiencia">
     </div>
-</div>
+    <div class="form-group">
+        <label for="descriptionExperience"></label>
+        <textarea type="text" class="form-control" id="descriptionExperience" name="descriptionExperience"
+            [(ngModel)]="experience.descriptionExperience" required placeholder="Descripción de la experiencia"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="dateExperience"></label>
+        <input type="text" class="form-control" id="dateExperience" name="dateExperience"
+            [(ngModel)]="experience.dateExperience" required placeholder="Periodo de la experiencia">
+    </div>
+
+    <div class="img"><img class="img-load" src="{{image[0]}}" width="100px"></div>
+    <div class="form-group">
+        <label for="urlImageExperience" class="labelFile"></label>
+        <input type="file" class="labelInputFile" accept=".bmp, .gif , .jpg, .tif, .png, .jpeg"
+            (change)="loadImage($event)" id="urlImageExperience">
+    </div>
+
+    <button class="bttn-minimal bttn-md bttn-primary" [disabled]="loading" (click)="load()"> {{(loading)?
+        'Editando..': 'Actualizar Experiencia'}}</button>
+</form>

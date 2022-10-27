@@ -1,44 +1,53 @@
-<div class="container" *ngIf="skill">
-    <div class="row">
-        <div>
-            <form (ngSubmit)="onEdit()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nameSkill">Nombre de la habilidad</label>
-                    <input type="text" class="form-control" id="nameSkill" name="nameSkill"
-                        [(ngModel)]="skill.nameSkill" required>
+<form (ngSubmit)="onEdit()" novalidate #f="ngForm" *ngIf="skill">
+    <div class="form-group">
+        <label for="nameSkill"></label>
+        <input type="text" class="form-control" id="nameSkill" name="nameSkill" [(ngModel)]="skill.nameSkill" required
+            placeholder="Nombre de la habilidad">
+    </div>
+    <div class="form-group row" id="levelSkill"
+        style="display: flex ; flex-direction: row; ; color: rgba(255, 255, 255, 0.76);">
+        
+        <div class="col-md-2 level"
+        style="padding: 0;display: flex;flex-direction: column;color: rgba(255, 255, 255, 0.76);justify-content: center;">
+                <div class="col-md-12">
+                    <p style="font-size: small ; margin:0%">Nivel</p>
                 </div>
-                <div class="form-group">
-                    <label for="levelSkill">Nivel de la habilidad</label>
-                    <input type="range" min="0" max="100" step="1" class="form-control" id="levelSkill" name="levelSkill"
-                        [(ngModel)]="skill.levelSkill" required>
+                <div class="col-md-12">
+                    <output name="amount" for="levelSkill" style="font-size: small"> {{skill.levelSkill}} </output>
                 </div>
-                
-                <div class="form-group">
-                    <label for="categorySkill">Categoria de la habilidad</label>
-                    <select type="text" class="form-control" id="categorySkill" name="categorySkill"
-                        [(ngModel)]="skill.categorySkill" required>
-                        <option value="Frontend">Frontend</option>
-                        <option value="Backend">Backend</option>
-                        <option value="Base de datos">Base de datos</option>
-                        <option value="Otros">Otros</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="subCategorySkill">Subcategoría de la habilidad</label>
-                    <select type="text" class="form-control" id="subCategorySkill" name="subCategorySkill"
-                        [(ngModel)]="skill.subCategorySkill" required>
-                        <option value="Básicas">Frontend - Básicas</option>
-                        <option value="Frameworks">Frontend - Frameworks</option>
-                        <option value="Estilos">Frontend - Estilos</option>
-                        <option value="Tecnología">Backend - Tecnología</option>
-                        <option value="RDBMS">Base de datos - RDBMS</option>
-                        <option value="Herramientas">Otras - Herramientas</option>
-                        <option value="Sistemas operativos">Otras - Sistemas operativos</option>
-                        <option value="Idiomas">Otras - Idiomas</option>
-                    </select>
-                </div>
-                <button class="bttn-minimal bttn-md bttn-primary"> Confirmar</button>
-            </form>
+        </div>
+        <div class="col-md-10" style="padding:0 ;">
+            <input type="range" min="0" max="100" step="1" value="50" class="form-control" id="levelSkill"
+                name="levelSkill" [(ngModel)]="skill.levelSkill" required placeholder="Nivel de la habilidad"
+                oninput="amount.value=levelSkill.value">
         </div>
     </div>
-</div>
+
+    <div class="form-group">
+        <label for="categorySkill"></label>
+        <select type="text" class="form-control" id="categorySkill" name="categorySkill"
+            [(ngModel)]="skill.categorySkill" required>
+            <option value="" selected disabled>Seleccione la categoría</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Base de datos">Base de datos</option>
+            <option value="Otros">Otros</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="subCategorySkill"></label>
+        <select type="text" class="form-control" id="subCategorySkill" name="subCategorySkill"
+            [(ngModel)]="skill.subCategorySkill" required>
+            <option value="" selected disabled>Seleccione la sub-categoría</option>
+            <option value="Básicas">Frontend - Básicas</option>
+            <option value="Frameworks">Frontend - Frameworks</option>
+            <option value="Estilos">Frontend - Estilos</option>
+            <option value="Tecnología">Backend - Tecnología</option>
+            <option value="RDBMS">Base de datos - RDBMS</option>
+            <option value="Herramientas">Otras - Herramientas</option>
+            <option value="Sistemas operativos">Otras - Sistemas operativos</option>
+            <option value="Idiomas">Otras - Idiomas</option>
+        </select>
+    </div>
+    <button class="bttn-minimal bttn-md bttn-primary"> Confirmar</button>
+</form>

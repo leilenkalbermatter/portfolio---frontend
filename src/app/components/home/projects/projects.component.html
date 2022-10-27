@@ -1,5 +1,5 @@
 <div class="container" id="project">
-    <div class="row">
+    <div class="row" id="row">
         <div class="col-sm-10">
             <p class="text-start project">Proyectos</p>
         </div>
@@ -18,13 +18,23 @@
             <div class="col-md-3" id="cards" *ngFor="let Project of project">
                 <div class="card text-white">
                     <img src="{{Project.urlImageProject}}" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body" style="
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 20vw;
+    text-align: center;
+"
+>
                         <h5 class="card-title">{{Project.nameProject}}</h5>
-                        <p class="card-text">{{Project.descriptionProject}}</p>
-                        <p class="card-text"><small class="text-muted">{{Project.linkProject}</small></p>
+                        <p class="card-text" style="font-size:small;"
+>{{Project.descriptionProject}}</p>
+                        <p class="card-text" style="font-size:small;"
+><small class="text-muted">{{Project.linkProject}}</small></p>
                     </div>
                     <div class="row" *ngIf="isLogged">
-                        <div class="col-md-12 text-start" id="buttons-card">
+                        <div class="col-md-12" id="buttons-card">
                             <button routerLink="/editarProyecto/{{Project.id}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">

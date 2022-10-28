@@ -63,6 +63,28 @@ svg {
     }
 }
 
+.card-body {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 20vw;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .card-body {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
 a {
     color: white;
 }

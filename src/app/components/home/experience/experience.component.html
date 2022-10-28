@@ -22,14 +22,7 @@
             <div class="col-md-3 col-lg-4 col-sm-12"id="cards" *ngFor="let Experience of experience">
                 <div class="card text-white">
                     <img src="{{Experience.urlImageExperience}}" class="card-img-top" alt="...">
-                    <div class="card-body" style="
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: 20vw;
-    text-align: center;
-">
+                    <div class="card-body">
                         <h5 class="card-title">{{Experience.nameExperience}}</h5>
                         <p class="card-text" style="font-size:small;">{{Experience.descriptionExperience}}</p>
                         <p class="card-text" style="font-size:small;"><small class="text-muted">{{Experience.dateExperience}}</small></p>

@@ -43,10 +43,11 @@ svg {
 
 .card-img-top {
     width: 100%;
-    height: 6vw;
+    height: 10vw;
     object-fit: cover;
-    padding: 2px;
+    padding: 4px;
     max-width: fit-content;
+
 }
 
 

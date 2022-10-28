@@ -62,6 +62,7 @@ import { FooterComponent } from './components/home/footer/footer.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
   providers: [

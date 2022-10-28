@@ -50,4 +50,17 @@ svg {
 
 }
 
+@media (max-width: 767px) {
+    .card-img-top {
+        width: 50%;
+        height: 20vw;
+    }
+}
+
+@media (max-width: 767px) {
+    #cards {
+        width: 100%;
+    }
+}
+
 

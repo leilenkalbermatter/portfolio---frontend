@@ -27,9 +27,9 @@ import { AddSkillComponent } from './components/home/skills/add-skill.component'
 import { EditSkillComponent } from './components/home/skills/edit-skill.component';
 import { EditAboutComponent } from './components/home/about-me/edit-about.component';
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FooterComponent } from './components/home/footer/footer.component';
+import { provideFirebaseApp } from '@angular/fire/app';
 
 
 
@@ -64,15 +64,8 @@ import { FooterComponent } from './components/home/footer/footer.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< Updated upstream
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
-=======
-    provideStorage(() => getStorage()),
-    
-
-
->>>>>>> Stashed changes
   ],
   providers: [
     InterceptorProvider

@@ -81,9 +81,11 @@
 button {
     background-color: transparent;
     margin-bottom: 15px;
+    border: none;
 }
 
 svg {
     color: white;
+    border: none;
 }
 

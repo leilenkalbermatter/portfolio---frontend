@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { Pagina404Component } from './components/pagina404/pagina404.component';
+import { Page404Component } from './components/page404/page404.component';
 import { InterceptorProvider } from './services/interceptor-service';
 import { AddExperienceComponent } from './components/home/experience/add-experience.component';
 import { EditExperienceComponent } from './components/home/experience/edit-experience.component';
@@ -30,6 +30,7 @@ import { initializeApp } from "firebase/app";
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FooterComponent } from './components/home/footer/footer.component';
 import { provideFirebaseApp } from '@angular/fire/app';
+import { LoadingComponent } from './components/home/loading/loading.component';
 
 
 
@@ -44,7 +45,7 @@ import { provideFirebaseApp } from '@angular/fire/app';
     ExperienceComponent,
     HomeComponent,
     LoginComponent,
-    Pagina404Component,
+    Page404Component,
     AddExperienceComponent,
     EditExperienceComponent,
     AddEducationComponent,
@@ -55,6 +56,7 @@ import { provideFirebaseApp } from '@angular/fire/app';
     EditSkillComponent,
     EditAboutComponent,
     FooterComponent,
+    LoadingComponent,
 
   ],
   imports: [

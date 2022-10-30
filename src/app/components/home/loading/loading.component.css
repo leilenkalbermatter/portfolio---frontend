@@ -1,0 +1,32 @@
+.wait {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1em;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .wait {
+        letter-spacing: 0.5em;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .wait {
+        letter-spacing: 0.3em;
+    }
+    .imgLoading {
+        width: 150px;
+        height: 100px;
+    }
+}

@@ -11,8 +11,22 @@ import { TokenService } from 'src/app/services/token.service';
 
 export class AboutMeComponent implements OnInit {
     about: About = null;
+    loadingBack: boolean;
   
-    constructor(private aboutService : AboutService, private tokenService: TokenService) { }
+    constructor(private aboutService : AboutService, private tokenService: TokenService) {
+      this.loadingBack = true;
+
+      this.aboutService.detail(1).subscribe(
+        data => {
+          this.about = data;
+          this.loadingBack = false;
+        },
+        err => {
+          this.loadingBack = false;
+          console.log(err);
+        }
+      )
+    }
   
     isLogged = false;
   

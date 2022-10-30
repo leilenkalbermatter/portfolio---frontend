@@ -6,7 +6,7 @@ import { EducationComponent } from './components/home/education/education.compon
 import { ExperienceComponent } from './components/home/experience/experience.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { SkillsComponent } from './components/home/skills/skills.component';
-import { Pagina404Component } from './components/pagina404/pagina404.component';
+import { Page404Component } from './components/page404/page404.component';
 import { AddExperienceComponent } from './components/home/experience/add-experience.component';
 import { EditExperienceComponent } from './components/home/experience/edit-experience.component';
 import { AddEducationComponent } from './components/home/education/add-education.component';
@@ -17,6 +17,7 @@ import { AddSkillComponent } from './components/home/skills/add-skill.component'
 import { EditSkillComponent } from './components/home/skills/edit-skill.component';
 import { AboutMeComponent } from './components/home/about-me/about-me.component';
 import { EditAboutComponent } from './components/home/about-me/edit-about.component';
+import { LoadingComponent } from './components/home/loading/loading.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'skills', component: SkillsComponent },
   { path: 'añadirSkill', component: AddSkillComponent},
   { path: 'editarSkill/:id', component: EditSkillComponent},
-  { path: '**', component: Pagina404Component },
+  { path: '**', component: Page404Component }
 ];
 
 const routerOptions: ExtraOptions = { 

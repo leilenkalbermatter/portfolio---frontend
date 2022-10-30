@@ -4,7 +4,7 @@
             <p class="text-start education">Educación</p>
         </div>
         <div class="col-sm-2 text-end">
-            <button routerLink="/añadirEducación" *ngIf="isLogged">
+            <button style="border: none ;" routerLink="/añadirEducación" *ngIf="isLogged">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
                     viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -28,7 +28,7 @@
                     </div>
                     <div class="row" *ngIf="isLogged">
                         <div class="col-md-12" id="buttons-card">
-                            <button routerLink="/editarEducación/{{Education.id}}">
+                            <button style="border: none ;" routerLink="/editarEducación/{{Education.id}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path

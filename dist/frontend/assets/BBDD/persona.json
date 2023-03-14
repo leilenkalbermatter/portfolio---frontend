@@ -1,0 +1,28 @@
+{
+    "Persona": [
+        {
+            "id": "1",
+            "nombres": "Leilen",
+            "apellido": "Kalbermatter",
+            "sobre_mi": "Me dedico a la creación de aplicaciones web, poseo conocimientos básicos e intermedios para desarrollo font-end y back-end con HTML, CSS, JavaScript y Java, aplicados en los frameworks Bootstrap, Angular y SpringBoot",
+            "rrss": [
+                {
+                    "id": "1",
+                    "nombre": "GitHub",
+                    "url": "https://github.com/leilenkalbermatter"
+                },
+                {
+                    "id": "2",
+                    "nombre": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/leilen-kalbermatter/"
+                },
+                {
+                    "id": "3",
+                    "nombre": "Gmail",
+                    "url": "mailto:leilenkalbermatter@gmail.com"
+                }
+            ]
+
+        }
+    ]
+}

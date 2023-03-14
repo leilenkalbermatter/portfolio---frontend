@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  URL: 'https://back-leilenkalbermatter.herokuapp.com/',
+  URL: 'https://backend-leilenkalbermatter.onrender.com',
   firebase: {
     apiKey: "AIzaSyD33im5Z2IrWHpXqgYtbqJGuxRPY_AY1Lk",
   authDomain: "leilenkalbermatter-fullstackdv.firebaseapp.com",

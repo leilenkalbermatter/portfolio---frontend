@@ -8,7 +8,7 @@ import { Experience } from '../model/experience';
   providedIn: 'root'
 })
 export class ExperienceService {
-  URL = environment.URL + 'experience';
+  URL = environment.URL + '/experience';
   constructor(private HttpClient: HttpClient) { }
 
   public list() : Observable<Experience[]>{

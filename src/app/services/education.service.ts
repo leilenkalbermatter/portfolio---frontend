@@ -8,7 +8,7 @@ import { Education } from '../model/education';
   providedIn: 'root'
 })
 export class EducationService {
-  URL = environment.URL + 'education';
+  URL = environment.URL + '/education';
 
   constructor(private HttpClient: HttpClient) { }
 

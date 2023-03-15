@@ -8,7 +8,7 @@ import { About } from '../model/about';
   providedIn: 'root'
 })
 export class AboutService {
-  URL = environment.URL + 'about';
+  URL = environment.URL + '/about';
 
   constructor(private HttpClient: HttpClient) { }
 

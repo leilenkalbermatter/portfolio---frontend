@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  URL: "backend-leilenkalbermatter.koyeb.app/",
+  URL: 'portfolio-backend.backend.koyeb/',
   firebase: {
     apiKey: "AIzaSyD33im5Z2IrWHpXqgYtbqJGuxRPY_AY1Lk",
   authDomain: "leilenkalbermatter-fullstackdv.firebaseapp.com",

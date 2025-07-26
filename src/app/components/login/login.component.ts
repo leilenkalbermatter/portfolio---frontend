@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginUser } from 'src/app/model/login-user';
-import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
+// Las siguientes importaciones ya no son necesarias para un sitio estático
+// import { LoginUser } from 'src/app/model/login-user';
+// import { AuthService } from 'src/app/services/auth.service';
+// import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -12,42 +13,27 @@ import { TokenService } from 'src/app/services/token.service';
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLogginFail = false;
-  loginUser!: LoginUser;
+  // loginUser!: LoginUser;
   userName!: string;
   password!: string;
   roles: string[] = [];
   errMsj!: string;
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+  // El constructor ahora solo necesita el Router si quieres redirigir
+  // Se eliminan AuthService y TokenService
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.isLogginFail = false;
-      this.roles = this.tokenService.getAuthorities();
-    }
+    // Toda la lógica de chequear el token se va.
+    // Siempre asumimos que no estamos logueados.
+    this.isLogged = false;
+    this.isLogginFail = false;
   }
 
   onLogin(): void {
-    this.loginUser = new LoginUser(this.userName, this.password);
-    
-    this.authService.login(this.loginUser).subscribe(data => {
-      this.tokenService.setToken(data.token);
-      this.tokenService.setUserName(data.userName);
-      this.tokenService.setAuthorities(data.authorities);
-
-      this.isLogged = true;
-      this.isLogginFail = false;
-      this.roles = data.authorities;
-      this.router.navigate(['']);
-    },
-      err => {
-        this.errMsj = err.error.message;
-        this.isLogged = false;
-        this.isLogginFail = true;
-        console.log(this.errMsj);
-      }
-    );
+    // La función de login ya no intenta conectar con el backend.
+    // Simplemente puedes mostrar un mensaje y/o redirigir al inicio.
+    alert("La función de login está desactivada en esta versión estática del portfolio.");
+    this.router.navigate(['']);
   }
-
 }

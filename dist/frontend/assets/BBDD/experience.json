@@ -1,0 +1,20 @@
+{
+    "experience": [
+        {
+            "company": "5D Tech Servicios Informaticos",
+            "position": "Creador - trabajo independiente",
+            "website": "",
+            "startDate": "2012-01-01",
+            "endDate": "",
+            "summary": "Emprendimiento personal, brindo servicio técnico informático y asesoro en el uso de tecnología emergente."
+        },
+        {
+            "company": "Coprinf - cooperativa de Profesionales en Informatica",
+            "position": "Asociado",
+            "website": "http://coprinf.com.ar/",
+            "startDate": "Febrero 2021",
+            "endDate": "",
+            "summary": "Formo parte del equipo de Servicio Tecnico, realizo reparaciones de software y venta de insumos."
+        }
+    ]
+}

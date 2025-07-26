@@ -1,19 +1,19 @@
+<!--
+=================================================================
+ ARCHIVO: skills.component.html
+=================================================================
+- Se eliminan los botones de añadir y editar/borrar que dependían de 'isLogged'.
+- Se ajusta el nivel de la habilidad para que no muestre el '%' si el valor es un texto como "Avanzado".
+-->
 <div class="container" id="skills">
     <div class="row" id="row">
-        <div class="col-sm-2">
-            <button style="border: none ;" routerLink="/añadirSkill" *ngIf="isLogged">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                </svg>
-            </button>
-        </div>
-        <div class="col-sm-10">
+        <!-- Se elimina el botón de añadir -->
+        <div class="col-sm-12">
             <p class="text-end skills">Habilidades</p>
         </div>
     </div>
     <div class="row">
+        <!-- SECCIÓN FRONTEND -->
         <div class="col-md-3">
             <div class="skillbar">
                 <div class="text-end title">Front end</div>
@@ -21,94 +21,25 @@
             <div class="skillbar">
                 <div class="skillbar-subtitle">Básicas</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryFrontend1(skill)" style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryFrontend1(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
             <div class="skillbar">
                 <div class="skillbar-subtitle">Frameworks</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryFrontend2(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryFrontend2(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%; border: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%; border: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="skillbar">
-                <div class="skillbar-subtitle">Estilos</div>
-            </div>
-            <div *ngFor="let Skill of findSubCategoryFrontend3(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
-                    <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
-                </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
         </div>
+        <!-- SECCIÓN BACKEND -->
         <div class="col-md-3">
             <div class="skillbar">
                 <div class="text-end title">Back end</div>
@@ -116,168 +47,64 @@
             <div class="skillbar">
                 <div class="skillbar-subtitle">Tecnología</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryBackend1(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryBackend1(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
         </div>
-
+        <!-- SECCIÓN BASE DE DATOS -->
         <div class="col-md-3">
             <div class="skillbar">
                 <div class="text-end title">Base de datos</div>
             </div>
-
             <div class="skillbar">
                 <div class="skillbar-subtitle">RDBMS</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryDataBase1(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryDataBase1(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
         </div>
-
+        <!-- SECCIÓN OTRAS -->
         <div class="col-md-3">
             <div class="skillbar">
                 <div class="text-end title">Otras</div>
             </div>
-
             <div class="skillbar">
                 <div class="skillbar-subtitle">Herramientas</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryOthers1(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryOthers1(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
-
             <div class="skillbar">
                 <div class="skillbar-subtitle">Sistemas operativos</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryOthers2(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryOthers2(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
-
             <div class="skillbar">
                 <div class="skillbar-subtitle">Idiomas</div>
             </div>
-            <div *ngFor="let Skill of findSubCategoryOthers3(skill)"style="
-            display: flex;
-            flex-direction: row-reverse;">
-                <div class="col-md-10 skillbar">
+            <div *ngFor="let Skill of findSubCategoryOthers3(skill)" style="display: flex; flex-direction: row-reverse;">
+                <div class="col-md-12 skillbar">
                     <div class="skillbar-title">{{Skill.nameSkill}}</div>
-                    <div class="skill-bar-percent">{{Skill.levelSkill}}%</div>
-                    <div class="skillbar-bar" [style.width]="Skill.levelSkill+'%'"></div>
+                    <div class="skill-bar-percent">{{Skill.levelSkill}}</div>
                 </div>
-                <div class="col-md-2 text-end" id="buttons-card" style="padding-left: 8px; padding-right: 8px;">
-                    <button style="border: none ;" routerLink="/editarSkill/{{Skill.id}}" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path
-                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                            <path fill-rule="evenodd"
-                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                        </svg>
-                    </button>
-                    <button (click)="delete(Skill.id)" *ngIf="isLogged" style="padding:0%; margin: 0%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Se eliminan los botones -->
             </div>
         </div>
     </div>

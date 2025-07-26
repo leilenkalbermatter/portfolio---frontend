@@ -1,23 +1,17 @@
+<!--
+=================================================================
+ ARCHIVO: experience.component.html
+=================================================================
+- Se eliminan los botones de añadir y editar/borrar que dependían de 'isLogged'.
+-->
 <div class="container" id="experience">
     <div class="row" id="row">
-        <div class="col-sm-2 text-start">
-            <button style="border: none ;" routerLink="/añadirExperiencia" *ngIf="isLogged">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                </svg>
-            </button>
-        </div>
-        <div class="col-sm-10">
+        <!-- Se elimina el botón de añadir -->
+        <div class="col-sm-12">
             <p class="text-end experience">Experiencia</p>
         </div>
-
     </div>
-    <div class="card-group" style="
-    display: flex;
-    flex-direction: row-reverse;
-">
+    <div class="card-group" style="display: flex; flex-direction: row-reverse;">
         <div class="row" style="flex-flow: row; flex-wrap: wrap;">
             <div class="col-md-3 col-lg-4 col-sm-12"id="cards" *ngFor="let Experience of experience">
                 <div class="card text-white">
@@ -27,30 +21,9 @@
                         <p class="card-text" style="font-size:small;">{{Experience.descriptionExperience}}</p>
                         <p class="card-text" style="font-size:small;"><small class="text-muted">{{Experience.dateExperience}}</small></p>
                     </div>
-                    <div class="row" *ngIf="isLogged">
-                        <div class="col-md-12" id="buttons-card">
-                            <button style="border: none ;" routerLink="/editarExperiencia/{{Experience.id}}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd"
-                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                </svg>
-                            </button>
-                            <button class="delete" type="button" style="border: none ;"
-                                (click)="delete(Experience.id, Experience.pathImageExperience)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <path
-                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Se elimina la sección de botones de editar/borrar -->
                 </div>
             </div>
         </div>
     </div>
-
 </div>

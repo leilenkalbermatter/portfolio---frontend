@@ -31,7 +31,7 @@ export class SkillsComponent implements OnInit {
 
       // --- CATEGORÍA BACKEND ---
       new Skill('Python', 'Avanzado', 'Backend', 'Tecnología'),
-      new Skill('Google Cloud Platform (GCP)', 'Intermedio', 'Backend', 'Tecnología'),
+      new Skill('GCP', 'Intermedio', 'Backend', 'Tecnología'),
       new Skill('API REST', 'Avanzado', 'Backend', 'Tecnología'),
 
       // --- CATEGORÍA BASE DE DATOS ---
@@ -42,7 +42,9 @@ export class SkillsComponent implements OnInit {
       // --- CATEGORÍA OTRAS ---
       new Skill('Git', 'Avanzado', 'Otras', 'Herramientas'),
       new Skill('Docker', 'Básico', 'Otras', 'Herramientas'),
-      new Skill('Linux', 'Intermedio', 'Otras', 'Sistemas operativos'),
+      new Skill('Linux', 'Avanzado', 'Otras', 'Sistemas operativos'),
+      new Skill('ChromeOS', 'Avanzado', 'Otras', 'Sistemas operativos'),
+      new Skill('Windows', 'Avanzado', 'Otras', 'Sistemas operativos'),
       new Skill('Inglés', 'Profesional', 'Otras', 'Idiomas'),
     ];
   }

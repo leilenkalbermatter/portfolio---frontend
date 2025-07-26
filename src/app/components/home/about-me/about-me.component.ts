@@ -35,7 +35,7 @@ export class AboutMeComponent implements OnInit {
         'Leilen',
         'Kalbermatter',
         'leilenkalbermatter@gmail.com', // Reemplaza con tu email
-        'Desarrolladore Full Stack con especialización en Backend y arquitecturas serverless en Google Cloud Platform (GCP). Experiencia sólida en el diseño y la implementación de soluciones de punta a punta, desde la automatización de procesos de datos hasta la integración de sistemas a través de APIs.',
+        'Desarrollador Full Stack con especialización en Backend y arquitecturas serverless en Google Cloud Platform (GCP). Experiencia sólida en el diseño y la implementación de soluciones de punta a punta, desde la automatización de procesos de datos hasta la integración de sistemas a través de APIs.',
         'https://www.linkedin.com/in/leilen-kalbermatter/', // Reemplaza con tu URL de LinkedIn
         'https://github.com/LeilenKalbermatter' // Reemplaza con tu URL de GitHub
       );

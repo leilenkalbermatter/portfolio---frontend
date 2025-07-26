@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/model/education';
-import { EducationService } from 'src/app/services/education.service';
-import { TokenService } from 'src/app/services/token.service';
-import { getStorage, ref, deleteObject } from "firebase/storage";
-
+// SE ELIMINAN LOS SERVICIOS Y DEPENDENCIAS
+// import { EducationService } from 'src/app/services/education.service';
+// import { TokenService } from 'src/app/services/token.service';
+// import { getStorage, ref, deleteObject } from "firebase/storage";
 
 @Component({
   selector: 'app-education',
@@ -12,67 +12,37 @@ import { getStorage, ref, deleteObject } from "firebase/storage";
 })
 export class EducationComponent implements OnInit {
   education: Education[] = [];
-
-  constructor(private educationService: EducationService,
-    private tokenService: TokenService) {
-  }
-
   isLogged = false;
+
+  constructor() { }
 
   ngOnInit(): void {
     this.loadEducations();
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
   }
 
-  loadEducations() {
-    this.educationService.list().subscribe(
-      data => {
-        this.education = data;
-      },
-      err => {
-        alert("Error al cargar los datos");
-      }
-    )
+  loadEducations(): void {
+    // CREAMOS EL ARRAY DE EDUCACIÓN CON TUS DATOS
+    this.education = [
+      new Education(
+        'Ingeniería Industrial',
+        'Universidad Tecnológica Nacional (UTN). Formación orientada a la optimización de procesos y sistemas productivos. Próximo a finalizar.',
+        '2012 - 2026 (previsto)',
+        '', // pathImageEducation (dejar vacío)
+        'https://placehold.co/100x100/CCCCCC/FFFFFF?text=UTN'  // urlImageEducation (URL a logo de UTN o placeholder)
+      ),
+      new Education(
+        'Full Stack Developer',
+        'Argentina Programa 4.0. Programa intensivo enfocado en el desarrollo de aplicaciones web de punta a punta.',
+        '2022', // O el año que corresponda
+        '', // pathImageEducation (dejar vacío)
+        'https://placehold.co/100x100/333333/FFFFFF?text=AP'  // urlImageEducation (URL a logo de Arg. Programa o placeholder)
+      )
+    ];
   }
 
-  public deleteFirebase(pathImgEducation?: string) {
-    const storage = getStorage();
-
-    const desertRef = ref(storage, "education/" + pathImgEducation);
-    console.log(desertRef)
-    // Delete the file
-    deleteObject(desertRef).then(() => {
-      console.log("File deleted successfully")
-    }).catch((error) => {
-      console.log(error)
-    });
-  }
-
-
-  async delete(id?: number, pathImgEducation?: string) {
-    if (id != undefined) {
-
-      //await this.storage.deletefirebase(pathImgEducation);
-      await this.deleteFirebase(pathImgEducation);
-
-
-      setTimeout(() =>
-
-        this.educationService.delete(id).subscribe(
-          data => {
-            this.loadEducations();
-
-          }, err => {
-            alert("Error al eliminar");
-          }
-        ), 1000);
-
-    }
-
-  }
-
+  // Las funciones de borrado ya no son necesarias y se eliminan
+  /*
+  public deleteFirebase(pathImgEducation?: string) { ... }
+  async delete(id?: number, pathImgEducation?: string) { ... }
+  */
 }

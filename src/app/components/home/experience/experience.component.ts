@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/model/experience';
-import { ExperienceService } from 'src/app/services/experience.service';
-import { TokenService } from 'src/app/services/token.service';
-import { getStorage, ref, deleteObject } from "firebase/storage";
-
+// SE ELIMINAN LOS SERVICIOS Y DEPENDENCIAS DE FIREBASE
+// import { ExperienceService } from 'src/app/services/experience.service';
+// import { TokenService } from 'src/app/services/token.service';
+// import { getStorage, ref, deleteObject } from "firebase/storage";
 
 @Component({
   selector: 'app-experience',
@@ -12,67 +12,33 @@ import { getStorage, ref, deleteObject } from "firebase/storage";
 })
 export class ExperienceComponent implements OnInit {
   experience: Experience[] = [];
-
-  constructor(private experienceService: ExperienceService,
-    private tokenService: TokenService) {
-  }
-
   isLogged = false;
 
+  // SE ELIMINA EL CONSTRUCTOR COMPLEJO
+  constructor() { }
+
   ngOnInit(): void {
+    // Llamamos a nuestra nueva función de carga estática
     this.loadExperiences();
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    // this.isLogged se mantiene en false
   }
 
-  loadExperiences() {
-    this.experienceService.list().subscribe(
-      data => {
-        this.experience = data;
-      },
-      err => {
-        alert("Error al cargar los datos");
-      }
-    )
+  loadExperiences(): void {
+    // CREAMOS EL ARRAY DE EXPERIENCIA CON TUS DATOS
+    this.experience = [
+      new Experience(
+        'Full Stack Developer & Cloud Architect',
+        'Lidero el diseño y desarrollo de soluciones de software a medida para clientes, con especialización en la automatización de procesos de negocio, desarrollo backend y la integración de sistemas en la nube.',
+        '2021 - Presente',
+        '', // pathImageExperience (dejar vacío)
+        'https://placehold.co/100x100/1E293B/FFFFFF?text=5DTech'  // urlImageExperience (puedes poner una URL a una imagen genérica de código o tu logo)
+      )
+    ];
   }
 
-  public deleteFirebase(pathImgExperience?: string) {
-    const storage = getStorage();
-
-    const desertRef = ref(storage, "experience/" + pathImgExperience);
-    console.log(desertRef)
-    // Delete the file
-    deleteObject(desertRef).then(() => {
-      console.log("File deleted successfully")
-    }).catch((error) => {
-      console.log(error)
-    });
-  }
-
-
-  async delete(id?: number, pathImgExperience?: string) {
-    if (id != undefined) {
-
-      //await this.storage.deletefirebase(pathImgExperience);
-      await this.deleteFirebase(pathImgExperience);
-
-
-      setTimeout(() =>
-
-        this.experienceService.delete(id).subscribe(
-          data => {
-            this.loadExperiences();
-
-          }, err => {
-            alert("Error al eliminar");
-          }
-        ), 1000);
-
-    }
-
-  }
-
+  // Las funciones de borrado ya no son necesarias y se eliminan
+  /*
+  public deleteFirebase(pathImgExperience?: string) { ... }
+  async delete(id?: number, pathImgExperience?: string) { ... }
+  */
 }
